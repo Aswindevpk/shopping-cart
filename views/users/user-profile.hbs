@@ -1,0 +1,30 @@
+<!-- body here  -->
+
+<div class="container-fluid row mb-5">
+    <div class="col-6 mt-5  text-center">
+        <img id="profile-pic" src="/public/images/person-circle.svg" alt="">
+        <h5 class="m-0 pt-2">User_name</h5>
+        <h5 class="m-0">user@gmail.com</h5>
+    </div>
+    <div class="col-6 mt-4">
+        <h4 class="mx-3">Delivery Details</h4>
+        <form class="mx-3" method="post">
+            <!-- Adress input -->
+            <div class="mb-4">
+                <textarea class="form-control" rows="3" name="address" placeholder="Address" required></textarea>
+            </div>
+            <!-- Mobile input -->
+            <div class="mb-4">
+                <input type="text" placeholder="mobile" name="mobile" class="form-control" required />
+            </div>
+
+            <!-- Mobile input -->
+            <div class="mb-4">
+                <input type="text" placeholder="pincode" name="pincode" class="form-control" required />
+            </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>

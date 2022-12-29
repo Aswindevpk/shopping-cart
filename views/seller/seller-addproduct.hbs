@@ -1,0 +1,38 @@
+<!-- body here  -->
+<div class="container-fluid">
+    <h4 class="m-4">Add product to sell</h4>
+    <form class="m-4" action="" method="post">
+        <h5 class="mb-3">Enter product Details</h5>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="mb-4">
+                    <input type="text" placeholder="product name" name="name" class="form-control" required />
+                </div>
+                <div class="mb-4">
+                    <textarea class="form-control" rows="6" name="Highlights" placeholder="Highlights"
+                        required></textarea>
+                </div>
+
+            </div>
+            <div class="col-3">
+                <div class="mb-4">
+                    <input type="number" placeholder="price" name="price" class="form-control" required />
+                </div>
+                <div class="mb-4">
+                    <input type="number" placeholder="Qty" name="quantity" class="form-control" required />
+                </div>
+                <div class="mb-4">
+                    <input type="number" placeholder="warranty" name="warranty" class="form-control" required />
+                </div>
+                <select class="form-select form-control mb-4" aria-label="Default select example" required>
+                    <option selected>Product Category</option>
+                    <option value="1">1</option>
+                </select>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

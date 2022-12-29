@@ -1,0 +1,27 @@
+
+<div id="SignupSection" class="text-center">
+    <h5 class="d-flex pt-4 pl-4">Sign Up</h5>
+    <p class="text-left pl-4 text-secondary">Please fill this form to create an Account.</p>
+    <form class="mx-3" method="post">
+        <!-- Name input -->
+        <div class="mb-4">
+            <input type="text" placeholder="Name" class="form-control" name="name" required />
+        </div>
+        <!-- Email input -->
+        <div class="mb-4">
+            <input type="email" placeholder="E-mail Address" name="email" class="form-control" required />
+        </div>
+
+        <!-- Password input -->
+        <div class="mb-4">
+            <input type="password" placeholder="Password" name="password" class="form-control" required />
+        </div>
+        <div>
+            <input type="password" placeholder="Confirm Password" name="password" class="form-control" required />
+        </div>
+        <a class="d-block text-right pt-1" href="/changepass" style="text-decoration: none;">forgot password ?</a>
+        <button type="submit" class="btn btn-primary d-block">Sign Up</button>
+    </form>
+</div>
+<p class="text-center pt-3 text-secondary">I already have an account? <a href="/login"
+        style="text-decoration: none;">Login</a></p>

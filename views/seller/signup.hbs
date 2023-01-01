@@ -2,13 +2,13 @@
 <div id="SignupSection" class="text-center">
     <div class="d-flex p-4">
         <h3 class="mr-2">Sign Up</h3>
-        <img src="/public/images/sellers-green.svg" alt="" style="width:50px ;">
+        <img src="../images/sellers-green.svg" alt="" style="width:50px ;">
     </div>
     <p class="text-left pl-4 text-secondary">Please fill this form to create an Account.</p>
-    <form class="mx-3" method="post">
+    <form class="mx-3" action="/seller/signup" method="post">
         <!-- shop Name input -->
         <div class="mb-4">
-            <input type="text" placeholder="Shop name" class="form-control" name="shopName" required />
+            <input type="text" placeholder="Shop name" class="form-control" name="name" required />
         </div>
         <!-- Email input -->
         <div class="mb-4">
@@ -17,7 +17,7 @@
 
         <!-- phone input -->
         <div class="mb-4">
-            <input type="email" placeholder="phone" name="phone" class="form-control" required />
+            <input type="text" placeholder="phone" name="phone" class="form-control" required />
         </div>
 
         <!-- address input -->
@@ -27,14 +27,35 @@
 
         <!-- Password input -->
         <div class="mb-4">
-            <input type="password" placeholder="Password" name="password" class="form-control" required />
+            <input id="pass" type="password" placeholder="Password" name="password" class="form-control" required />
         </div>
         <div>
-            <input type="password" placeholder="Confirm Password" name="password" class="form-control" required />
+            <input id="pass2" type="password" placeholder="Confirm Password" class="form-control" required />
+            <p id="no-match" class="text-danger m-0 text-left">password doesn't match</p>
         </div>
-        <a class="d-block text-right pt-1" href="/changepass" style="text-decoration: none;">forgot password ?</a>
-        <button type="submit" class="btn btn-success d-block">Sign Up</button>
+        <div class="text-right">
+            <a class="d-inline text-right pt-1" href="/changepass" style="text-decoration: none;">forgot password ?</a>
+        </div>
+        <button id="submit-btn" type="submit" class="btn btn-success d-block">Sign Up</button>
     </form>
 </div>
-<p class="text-center pt-3 text-secondary">I already have an account? <a href="/login"
+<p class="text-center pt-3 text-secondary">I already have an account? <a href="/seller/login"
         style="text-decoration: none;">Login</a></p>
+
+<script>
+   $(document).ready(function(){
+    $('#no-match').hide()
+    $('#pass2,#pass').focusout(function(){
+        var pass = $('#pass').val();
+        var pass2 = $('#pass2').val();
+        if(pass != pass2){
+            $('#no-match').show(1000)
+
+        }else{
+            $('#no-match').hide(1000)
+        }
+
+    });
+});
+</script>
+

@@ -4,9 +4,10 @@
         <div class="">
             <div class="m-0  p-0">
                 <a id="MainHeading" class="navbar-brand text-light mr-0" href="/home">The Shopping cart</a>
-                <img  src="/public/images/sellers.svg" alt="" style="width:50px ;">   
+                <img  src="../images/sellers.svg" alt="" style="width:50px ;">   
             </div>
         </div>
+        {{#if sellerData}}
         <!-- search -->
         <div>
             <form class="form-inline">
@@ -19,26 +20,24 @@
             <div class="dropdown pr-5">
                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Login
+                    {{seller.name}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/profile">Profile</a>
-                    <a class="dropdown-item" href="/cart">View Cart</a>
-                    <a class="dropdown-item" href="/orders">All Orders</a>
-                    <a class="dropdown-item" href="/log-out">Log Out</a>
-                </div>
+                    <a class="dropdown-item" href="/seller/profile">Profile</a>
+                    <a class="dropdown-item" href="/seller/all-orders">All Orders</a>
+                    <a class="dropdown-item" href="/seller/log-out">Log Out</a> 
+                </div>  
             </div>
             <div>
-                <div class="border border-light rounded">
+                <div id="wallet" class="border border-light rounded">
                     <h5 class="text-light m-0 p-1">₹ <span>10000</span></h5>
                 </div>
             </div>
         </div>
+        {{/if}}
     </nav>
-    <div id="sub-nav" class="bg-dark">
-        <a href="">Today's deals</a>
-        <a href="">Smartphones</a>
-        <a href="">Grocery</a>
-        <a href="">Register as seller</a>
+    <div id="sub-nav" class="bg-dark pb-3">
+       
     </div>
 </header>
+

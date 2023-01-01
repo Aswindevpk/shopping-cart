@@ -1,1 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 
+#MainHeading {
+    font-weight: bolder;
+    font-style: italic;
+}
+
+#sub-nav a {
+    padding-left: 3rem;
+    margin-bottom: 1px;
+    color: white;
+    font-style: italic;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+#sub-nav {
+    padding-bottom: 3px;
+}
+
+#LoginSection {
+    margin: auto;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 3rem;
+    background-color: #fcf8f9;
+    width: 450px;
+    height: 300px;
+}
+
+#SignupSection {
+    margin: auto;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 3rem;
+    background-color: #fcf8f9;
+    width: 450px;
+    height: 620px;  
+}
+
+.box-shadow {
+    border-radius: 5px;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

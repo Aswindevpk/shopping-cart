@@ -4,21 +4,26 @@
 <div id="LoginSection">
     <div class="d-flex p-4">
         <h3 class="mr-2">Login</h3>
-        <img src="/public/images/sellers-green.svg" alt="" style="width:50px ;">
+        <img src="../images/sellers-green.svg" alt="" style="width:50px ;">
     </div>
-    <form class="mx-3" method="post">
+    <form class="mx-3" action="/seller/login" method="post">
         <!-- Email input -->
         <div class="mb-4">
-            <input type="email" id="form2Example1" placeholder="Email" class="form-control" required />
+            <input type="email" id="form2Example1" placeholder="Email" class="form-control" name="email" required />
         </div>
 
         <!-- Password input -->
         <div class="">
-            <input type="password" id="form2Example2" placeholder="Password" class="form-control" required />
+            <input type="password" id="form2Example2" placeholder="Password" name="password" class="form-control" required />
+            {{#if error}}
+                <p class="text-danger m-0 text-left">{{error}}</p>
+            {{/if}}
         </div>
         <a class="d-block text-right pt-1" href="/changepass" style="text-decoration: none;">forgot password ?</a>
-        <button class="btn btn-success d-block">Login</button>
+        <button type="submit" class="btn btn-success d-block">Login</button>
     </form>
 </div>
-<p type="submit" class="text-center pt-3 text-secondary">I don't have an account? <a href="/signup"
+<p type="submit" class="text-center pt-3 text-secondary">I don't have an account? <a href="/seller/signup"
         style="text-decoration: none;"> Create One</a></p>
+
+

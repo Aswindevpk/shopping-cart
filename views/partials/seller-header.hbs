@@ -20,17 +20,21 @@
             <div class="dropdown pr-5">
                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{seller.name}}
+                    {{sellerData.name}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/seller/profile">Profile</a>
+                    <a class="dropdown-item" href="/seller/add-product">Add product</a>
                     <a class="dropdown-item" href="/seller/all-orders">All Orders</a>
                     <a class="dropdown-item" href="/seller/log-out">Log Out</a> 
                 </div>  
             </div>
             <div>
-                <div id="wallet" class="border border-light rounded">
-                    <h5 class="text-light m-0 p-1">₹ <span>10000</span></h5>
+                <div id="wallet" class="border border-light rounded col">
+                    <div class="row">
+                        <h5 class="text-light m-0 p-1">₹ <span>100000</span></h5>
+                        <a href=""><img class="px-1 pt-1" width="30px" src="../images/arrow-clockwise.svg" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>

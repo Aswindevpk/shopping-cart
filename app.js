@@ -8,6 +8,7 @@ var hbs = require('express-handlebars');
 var seller = require('./routes/seller');
 var users = require('./routes/users');
 var session = require("express-session")
+var fileUpload = require("express-fileupload")
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(session({
     cookie: { maxAge: oneDay },
     resave: false 
 }));
+app.use(fileUpload())
 
 app.use('/seller', seller);
 app.use('/', users);

@@ -4,8 +4,29 @@ var sellerHelper = require('../helpers/seller-helper');
 
 
 
+const verifyLogin=(req,res,next)=>{
+  let sellerData = req.session.seller
+  // req.session.seller={
+  //   "name": "Aiswarya Designers",
+  //   "email": "aiswarya@gmail.com",
+  //   "phone": "9847887293",
+  //   "address": "PK complex , Neravath, Ozhukur PO, mongam (via),Malappuram (Dist) - 673642",
+  //   "password": "$2b$10$jPA1rJmdGkHgw9hAf2hD3u6zcqUBacfuVyyA8zqnh70BrDXc0DifK",
+  //   "balance": 0,
+  //   "categories": [
+  //     "Grocery"
+  //   ]
+  // }
+
+  if(sellerData){
+    next()
+  }else{
+    res.redirect('/seller/login')
+  }
+}
+
 /* GET home page */
-router.get('/', function(req, res, next) {
+router.get('/',verifyLogin, function(req, res, next) {
   let sellerData = req.session.seller
   if(sellerData){
     res.render('seller/seller-products',{seller:true, sellerData})
@@ -32,13 +53,25 @@ router.get('/signup',(req,res)=>{
 })
 
 /* GET all-orders page */
-router.get('/all-orders',(req,res)=>{
-  res.render('seller/seller-all-orders',{ seller:true })
+router.get('/all-orders',verifyLogin,(req,res)=>{
+  let sellerData = req.session.seller
+  res.render('seller/seller-all-orders',{ seller:true ,sellerData})
 })
 
 /* GET profile page */
-router.get('/profile',(req,res)=>{
-  res.render('seller/seller-profile',{ seller:true })
+router.get('/profile',verifyLogin,(req,res)=>{
+  let sellerData = req.session.seller
+  sellerHelper.getSellerDetails(sellerData.email).then((response)=>{
+    req.session.seller = response
+    let sellerData = response
+    res.render('seller/seller-profile',{ seller:true ,sellerData})
+  })
+})
+
+/* GET add product page */
+router.get('/add-product',verifyLogin,(req,res)=>{
+  let sellerData = req.session.seller
+  res.render('seller/seller-addproduct',{ seller:true ,sellerData})
 })
 
 
@@ -48,7 +81,7 @@ router.get('/profile',(req,res)=>{
 router.post('/signup',(req,res)=>{
   var sellerData = req.body
   sellerHelper.doSignUp(sellerData).then((response)=>{
-
+    res.redirect('/seller/login')
   })
 })
 
@@ -63,5 +96,38 @@ router.post('/login',(req,res)=>{
     }
   })
 })
+
+
+router.post('/add-product',(req,res)=>{
+  let product = req.body
+  sellerHelper.addProduct(product).then(()=>{
+    
+  })
+
+
+})
+
+//add category 
+router.post('/add-category',(req,res)=>{
+  let category = req.body.category
+  let sellerEmail = req.session.seller.email
+  sellerHelper.addCategory(category, sellerEmail).then(()=>{
+    res.redirect('/seller/profile')
+  })
+})
+
+//remove category from database
+router.get('/remove-category/:category',(req,res)=>{
+  let sellerEmail = req.session.seller.email
+  let category = req.params.category
+  sellerHelper.removeCategory(category, sellerEmail).then(()=>{
+    res.redirect('/seller/profile')
+  })
+})
+
+
+
+
+
 
 module.exports = router;

@@ -1,20 +1,19 @@
 <!-- body here  -->
 <div class="container-fluid row mb-5">
     <div class="col-6 mt-5  text-center">
-        <img id="profile-pic" src="/public/images/person-circle.svg" height="200px" alt="">
-        <h5 class="m-0 pt-2">User_name</h5>
-        <h6 class="m-0 pt-2">+91 384327989883</h6>
-        <h6 class="m-0">user@gmail.com</h6>
+        <img id="profile-pic" src="../images/person-circle.svg" height="200px" alt="">
+        <h5 class="m-0 pt-2">{{sellerData.name}}</h5>
+        <h6 class="m-0 pt-2">+91 <span>{{sellerData.phone}}</span></h6>
+        <h6 class="m-0">{{sellerData.email}}</h6>
     </div>
     <div class="col-6 mt-4">
         <div class="mx-3 mb-5">
             <h4>Seller Address</h4>
-            <p class="m-0">House No:123 , Simple House , Post office PO, Main Place , District , State</p>
-            <p class="m-0">PIN : 123456</p>
+            <p class="m-0">{{sellerData.address}}</p>
         </div>
 
         <div class="mx-3">
-            <form class="mx-3" method="post">
+            <form class="mx-3" method="post" action="/seller/add-category">
                 <div class="row justify-content-between">
                     <div>
                         <h4>Product Categories</h4>
@@ -32,9 +31,12 @@
             </form>
             <div class="m-0 p-0 col-6">
                 <ul class="list-group list-group-flush text-primary">
-                    <li class=" ml-0 pl-0 h6 list-group-item">Smartphones</li>
-                    <li class=" ml-0 pl-0 h6 list-group-item">Grocery</li>
-
+                    {{#each sellerData.categories}}
+                    <div class="row justify-content-between p-0 ml-2 mt-1">
+                        <li class=" m-0 p-0 h6 list-group-item">{{this}}</li>
+                        <a class="btn btn-danger btn-sm" href="/seller/remove-category/{{this}}" onclick="return confirm('Are you really want to delete ?')">remove</a>
+                    </div>
+                    {{/each}}
                 </ul>
             </div>
 
